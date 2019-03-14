@@ -7,3 +7,4 @@ add_executable(Streamming_Inogeni ${SRC_FILES})
 
 find_package( OpenCV REQUIRED )
 target_link_libraries(Streamming_Inogeni ${OpenCV_LIBS})
+target_link_libraries(Streamming_Inogeni "-lavdevice -lavformat -lavcodec -lavutil -lswscale")
