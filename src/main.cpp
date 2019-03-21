@@ -22,9 +22,6 @@ using namespace cv;
 #define AV_OUTPUT_CODEC  "libx264"
 #define AV_OUTPUT_BITRATE 6000000
 
-#define OUTPUT_WIDTH 640
-#define OUTPUT_HEIGHT 480
-
 typedef struct {
     AVFormatContext *pFmtCtx    = nullptr;
     AVCodecContext  *pCodecCtx  = nullptr;
@@ -100,9 +97,8 @@ int main(int argc, char **argv) {
 
     const int INPUT_WIDTH = input.pCodecCtx->width;
     const int INPUT_HEIGHT = input.pCodecCtx->height;
-
-    std::cout << input.pCodecCtx->pix_fmt << endl;
-    cout << AV_PIX_FMT_YUV420P << endl;
+    const int OUTPUT_WIDTH = INPUT_WIDTH;
+    const int OUTPUT_HEIGHT = INPUT_HEIGHT;
 
     ret = avcodec_open2(input.pCodecCtx, input.pCodec, nullptr);
     if(ret < 0) Erro("Could not open codec");
